@@ -1,65 +1,326 @@
 <!DOCTYPE html>
-<html lang="cs" class="dark">
-  <head>
-    <!--
-       ______                            __
-      / ____/___  ____ ___  ____  __  __/ /____  _____
-     / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
-    / /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
-    \____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
-                        /_/
-            Created with Perplexity Computer
-            https://www.perplexity.ai/computer
-    -->
-    <meta name="generator" content="Perplexity Computer">
-    <meta name="author" content="Perplexity Computer">
-    <meta property="og:see_also" content="https://www.perplexity.ai/computer">
-    <link rel="author" href="https://www.perplexity.ai/computer">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>AI Holding — Command Center</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-CgqrtbGx.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-D1oVvaDp.css">
-  </head>
-  <body>
-    <!-- Login Gate -->
-    <div id="login-gate" style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#111015;font-family:'DM Sans',sans-serif;">
-      <div style="background:#1F1E25;border-radius:16px;padding:48px 40px;max-width:400px;width:90%;text-align:center;border:1px solid rgba(202,156,79,0.15);">
-        <div style="font-family:'Instrument Serif',serif;font-size:28px;color:#CA9C4F;margin-bottom:8px;">AI Holding</div>
-        <div style="font-size:13px;color:#7F7F81;margin-bottom:32px;letter-spacing:0.5px;">COMMAND CENTER</div>
-        <form id="login-form" onsubmit="return checkPass()">
-          <input id="pass-input" type="password" placeholder="Heslo" autocomplete="current-password"
-            style="width:100%;padding:14px 16px;background:#111015;border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#fff;font-size:15px;font-family:'DM Sans',sans-serif;outline:none;box-sizing:border-box;margin-bottom:16px;transition:border-color 0.2s;"
-            onfocus="this.style.borderColor='rgba(202,156,79,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
-          <div id="login-error" style="color:#E05555;font-size:13px;margin-bottom:12px;display:none;">Nesprávné heslo</div>
-          <button type="submit" style="width:100%;padding:14px;background:#CA9C4F;color:#111015;border:none;border-radius:10px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity 0.2s;"
-            onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Vstoupit</button>
-        </form>
+<html lang="cs">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Holding</title>
+<meta name="description" content="AI Holding — The Future is Autonomous">
+<meta name="theme-color" content="#0A0A1A">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{--bg:#0A0A1A;--cyan:#00E5FF;--pink:#FF2D9B;--gold:#FFB800;--white:#FFF;--muted:#6B7280}
+  html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+  canvas#neural-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0}
+  .vignette{
+    position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 45%,rgba(10,10,26,0.3) 0%,rgba(10,10,26,0.2) 20%,rgba(10,10,26,0.5) 50%,rgba(10,10,26,0.85) 100%);
+  }
+  .page-wrapper{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;height:100dvh;padding:40px 24px}
+  .content{display:flex;flex-direction:column;align-items:center}
+  .title{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(48px,8vw,80px);font-weight:400;letter-spacing:0.02em;line-height:1.1;text-align:center;margin-bottom:16px;user-select:none}
+  .tagline{font-family:'DM Sans',sans-serif;font-size:clamp(11px,1.4vw,14px);font-weight:500;text-transform:uppercase;letter-spacing:0.3em;color:var(--muted);text-align:center;margin-bottom:48px}
+  .login-form{display:flex;flex-direction:column;align-items:center;gap:12px;width:320px;max-width:100%}
+  .pass-input{
+    width:100%;padding:14px 18px;background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.12);border-radius:12px;
+    color:var(--white);font-family:'DM Sans',sans-serif;font-size:15px;
+    outline:none;transition:border-color .3s,box-shadow .3s,background .3s;
+    -webkit-appearance:none;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  }
+  .pass-input::placeholder{color:rgba(107,114,128,0.7)}
+  .pass-input:focus{border-color:rgba(0,229,255,0.6);background:rgba(255,255,255,0.06);box-shadow:0 0 24px rgba(0,229,255,0.12),0 0 8px rgba(0,229,255,0.08)}
+  .pass-input.error{border-color:var(--pink);box-shadow:0 0 20px rgba(255,45,155,0.2);animation:shake .5s ease}
+  .pass-input.success{border-color:var(--cyan);box-shadow:0 0 30px rgba(0,229,255,0.25),0 0 60px rgba(0,229,255,0.08)}
+  @keyframes shake{0%,100%{transform:translateX(0)}15%{transform:translateX(-8px)}30%{transform:translateX(6px)}45%{transform:translateX(-5px)}60%{transform:translateX(4px)}75%{transform:translateX(-2px)}90%{transform:translateX(1px)}}
+  .submit-btn{width:100%;padding:14px 18px;background:var(--cyan);color:var(--bg);border:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;letter-spacing:0.02em}
+  .submit-btn:hover{background:#33EBFF;box-shadow:0 0 28px rgba(0,229,255,0.4);transform:translateY(-1px)}
+  .submit-btn:active{transform:translateY(0);box-shadow:0 0 12px rgba(0,229,255,0.2)}
+  .login-message{font-family:'DM Sans',sans-serif;font-size:13px;height:20px;display:flex;align-items:center;justify-content:center;gap:6px;margin-top:4px}
+  .login-error{color:var(--pink);display:none}
+  .login-success{color:var(--cyan);display:none;align-items:center;gap:6px}
+  .checkmark-icon{width:16px;height:16px;flex-shrink:0}
+  .footer{position:fixed;bottom:0;left:0;right:0;z-index:2;text-align:center;padding:20px 24px;font-family:'Inter',sans-serif;font-size:11px;font-weight:300;color:rgba(107,114,128,0.45);line-height:1.8}
+  .footer a{color:rgba(107,114,128,0.45);text-decoration:none;transition:color .25s}
+  .footer a:hover{color:var(--muted)}
+  .footer .attribution{margin-top:2px}
+  @media(max-height:600px){.tagline{margin-bottom:28px}.title{margin-bottom:12px}.footer{position:relative;margin-top:24px}}
+  @media(max-width:480px){.login-form{width:280px}.tagline{margin-bottom:36px}}
+</style>
+</head>
+<body>
+<canvas id="neural-bg"></canvas>
+<div class="vignette"></div>
+<div class="page-wrapper">
+  <div class="content">
+    <h1 class="title">AI Holding</h1>
+    <p class="tagline">The Future is Autonomous</p>
+    <form class="login-form" onsubmit="return checkPass()">
+      <input type="password" id="pass-input" class="pass-input" placeholder="Heslo" autocomplete="off" spellcheck="false">
+      <button type="submit" class="submit-btn">Vstoupit</button>
+      <div class="login-message">
+        <span id="login-error" class="login-error">Nespr&aacute;vn&eacute; heslo</span>
+        <span id="login-success" class="login-success">
+          <svg class="checkmark-icon" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M5 8.5L7 10.5L11 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span id="success-text"></span>
+        </span>
       </div>
-    </div>
-    <div id="root" style="display:none;"></div>
-    <script>
-      // Simple hash check — not military-grade, but blocks casual access
-      var H='a]Kp9#Qx';
-      function checkPass(){
-        var p=document.getElementById('pass-input').value;
-        if(p===atob('YWlob2xkaW5nMjAyNg==')){
-          sessionStorage.setItem('_ah_auth','1');
-          showApp();
-        } else {
-          document.getElementById('login-error').style.display='block';
-          document.getElementById('pass-input').style.borderColor='#E05555';
-        }
-        return false;
-      }
-      function showApp(){
-        document.getElementById('login-gate').style.display='none';
-        document.getElementById('root').style.display='block';
-      }
-      if(sessionStorage.getItem('_ah_auth')==='1') showApp();
-    </script>
-  </body>
+    </form>
+  </div>
+</div>
+<footer class="footer">
+  <div>&copy; 2026 <a href="https://rejstrik-firem.kurzy.cz/01561707/lk-holding-solutions-sro/" target="_blank" rel="noopener noreferrer">LK Holding &amp; Solutions s.r.o.</a>, Praha &middot; I&#268;O 01561707</div>
+  <div class="attribution"><a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a></div>
+</footer>
+
+<script>
+function checkPass(){
+  var input=document.getElementById('pass-input'),p=input.value,
+    err=document.getElementById('login-error'),
+    suc=document.getElementById('login-success'),
+    txt=document.getElementById('success-text');
+  input.classList.remove('error','success');err.style.display='none';suc.style.display='none';
+  if(p===atob('YWlob2xkaW5nMjAyNg==')){
+    input.classList.add('success');suc.style.display='flex';txt.textContent='\u2713';
+    setTimeout(function(){txt.textContent='P\u0159esm\u011brov\u00e1n\u00ed...'},800);
+    setTimeout(function(){window.location.href='/dashboard/'},2000);
+  }else{
+    input.classList.add('error');err.style.display='block';
+    setTimeout(function(){input.classList.remove('error')},600);
+  }
+  return false;
+}
+document.getElementById('pass-input').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();checkPass()}});
+
+// ─── FLOWING FIBER OPTICS ──────────────────────────────────────
+// Inspired by Cisco Behance neon fiber visualization
+// Key: Bézier curves that span the entire screen, rendered with glow layers
+(function(){
+var c=document.getElementById('neural-bg'),ctx=c.getContext('2d');
+var W,H,dpr;
+var mob=window.innerWidth<768;
+
+function resize(){
+  dpr=Math.min(window.devicePixelRatio||1,2);
+  W=window.innerWidth;H=window.innerHeight;
+  c.width=W*dpr;c.height=H*dpr;
+  c.style.width=W+'px';c.style.height=H+'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+
+// A flowing fiber is a continuous cubic Bézier spline that drifts over time
+// Each fiber has N control points that slowly oscillate, creating organic movement
+var FIBER_COUNT=mob?8:16;
+var CTRL_PTS=mob?5:7;
+var STEPS_PER_SEG=40;
+
+function Fiber(idx){
+  var roll=Math.random();
+  if(roll<0.38) this.col=[0,229,255];       // cyan
+  else if(roll<0.68) this.col=[255,45,155]; // pink
+  else this.col=[255,184,0];                // gold
+  this.op=0.35+Math.random()*0.45;
+  this.w=mob?0.4+Math.random()*0.6:0.6+Math.random()*1.1;
+  this.idx=idx;
+  this.setup();
+}
+
+Fiber.prototype.setup=function(){
+  // Control points spread across the screen
+  this.pts=[];
+  for(var i=0;i<CTRL_PTS;i++){
+    var baseX=W*(i/(CTRL_PTS-1))*1.3-W*0.15; // spread from -15% to 115%
+    var baseY=H*(0.1+Math.random()*0.8);
+    this.pts.push({
+      bx:baseX, by:baseY,
+      // Oscillation amplitudes
+      ax:W*0.03+Math.random()*W*0.06,
+      ay:H*0.04+Math.random()*H*0.08,
+      // Oscillation speeds (very slow for smooth flow)
+      fx:0.15+Math.random()*0.25,
+      fy:0.12+Math.random()*0.2,
+      // Phase offsets
+      px:Math.random()*6.283,
+      py:Math.random()*6.283
+    });
+  }
+  this.phase=Math.random()*100;
+  this.speed=0.15+Math.random()*0.15;
+};
+
+// Get current position of control point i at time t
+Fiber.prototype.ctrlAt=function(i,t){
+  var p=this.pts[i];
+  return [
+    p.bx+Math.sin(t*p.fx+p.px)*p.ax,
+    p.by+Math.sin(t*p.fy+p.py)*p.ay
+  ];
+};
+
+// Build the full curve as a series of points using Catmull-Rom → Bézier
+Fiber.prototype.buildCurve=function(t){
+  var ctrls=[];
+  for(var i=0;i<CTRL_PTS;i++) ctrls.push(this.ctrlAt(i,t));
+  
+  // Generate smooth path through all control points using Catmull-Rom interpolation
+  var curve=[];
+  for(var i=0;i<ctrls.length-1;i++){
+    var p0=ctrls[Math.max(0,i-1)];
+    var p1=ctrls[i];
+    var p2=ctrls[Math.min(ctrls.length-1,i+1)];
+    var p3=ctrls[Math.min(ctrls.length-1,i+2)];
+    for(var s=0;s<STEPS_PER_SEG;s++){
+      var tt=s/STEPS_PER_SEG;
+      var tt2=tt*tt, tt3=tt2*tt;
+      // Catmull-Rom spline
+      var x=0.5*((2*p1[0])+(p2[0]-p0[0])*tt+(2*p0[0]-5*p1[0]+4*p2[0]-p3[0])*tt2+(3*p1[0]-p0[0]-3*p2[0]+p3[0])*tt3);
+      var y=0.5*((2*p1[1])+(p2[1]-p0[1])*tt+(2*p0[1]-5*p1[1]+4*p2[1]-p3[1])*tt2+(3*p1[1]-p0[1]-3*p2[1]+p3[1])*tt3);
+      curve.push([x,y]);
+    }
+  }
+  curve.push(ctrls[ctrls.length-1]);
+  return curve;
+};
+
+Fiber.prototype.draw=function(time){
+  var t=this.phase+time*this.speed;
+  var curve=this.buildCurve(t);
+  var len=curve.length;
+  if(len<4)return;
+
+  var R=this.col[0],G=this.col[1],B=this.col[2];
+  var bo=this.op, w=this.w;
+
+  ctx.lineCap='round';
+  ctx.lineJoin='round';
+
+  // Animated head position sweeps along the curve
+  // Creates the "flowing stream" effect — bright head, fading tail
+  var headProgress=(Math.sin(t*0.4)*0.5+0.5); // oscillates 0→1
+  var headIdx=Math.floor(headProgress*(len-1));
+  
+  // Draw the full curve with distance-from-head based opacity
+  var segs=32;
+  var segLen=Math.max(4,Math.floor(len/segs));
+
+  // Layer 1: Wide outer glow
+  ctx.lineWidth=w*28;
+  for(var s=0;s<segs;s++){
+    var si=s*segLen, ei=Math.min(si+segLen+1,len-1);
+    if(si>=len-1) break;
+    var midIdx=(si+ei)/2;
+    var distFromHead=Math.abs(midIdx-headIdx)/len;
+    var a=0.04*bo*Math.exp(-distFromHead*4);
+    if(a<0.001)continue;
+    ctx.beginPath();
+    ctx.strokeStyle='rgba('+R+','+G+','+B+','+a.toFixed(4)+')';
+    ctx.moveTo(curve[si][0],curve[si][1]);
+    for(var i=si+1;i<=ei;i++) ctx.lineTo(curve[i][0],curve[i][1]);
+    ctx.stroke();
+  }
+
+  // Layer 2: Mid glow
+  ctx.lineWidth=w*9;
+  for(var s=0;s<segs;s++){
+    var si=s*segLen, ei=Math.min(si+segLen+1,len-1);
+    if(si>=len-1) break;
+    var midIdx=(si+ei)/2;
+    var distFromHead=Math.abs(midIdx-headIdx)/len;
+    var a=0.18*bo*Math.exp(-distFromHead*3.5);
+    if(a<0.002)continue;
+    ctx.beginPath();
+    ctx.strokeStyle='rgba('+R+','+G+','+B+','+a.toFixed(4)+')';
+    ctx.moveTo(curve[si][0],curve[si][1]);
+    for(var i=si+1;i<=ei;i++) ctx.lineTo(curve[i][0],curve[i][1]);
+    ctx.stroke();
+  }
+
+  // Layer 3: Bright core
+  ctx.lineWidth=w*2.5;
+  for(var s=0;s<segs;s++){
+    var si=s*segLen, ei=Math.min(si+segLen+1,len-1);
+    if(si>=len-1) break;
+    var midIdx=(si+ei)/2;
+    var distFromHead=Math.abs(midIdx-headIdx)/len;
+    var a=0.7*bo*Math.exp(-distFromHead*3);
+    if(a<0.005)continue;
+    ctx.beginPath();
+    ctx.strokeStyle='rgba('+R+','+G+','+B+','+a.toFixed(4)+')';
+    ctx.moveTo(curve[si][0],curve[si][1]);
+    for(var i=si+1;i<=ei;i++) ctx.lineTo(curve[i][0],curve[i][1]);
+    ctx.stroke();
+  }
+
+  // White-hot core near head
+  var hotRadius=Math.floor(len*0.08);
+  var hStart=Math.max(0,headIdx-hotRadius);
+  var hEnd=Math.min(len-1,headIdx+hotRadius);
+  if(hEnd-hStart>2){
+    ctx.lineWidth=w*1;
+    ctx.beginPath();
+    ctx.strokeStyle='rgba(255,255,255,'+(0.3*bo).toFixed(3)+')';
+    ctx.moveTo(curve[hStart][0],curve[hStart][1]);
+    for(var i=hStart+1;i<=hEnd;i++) ctx.lineTo(curve[i][0],curve[i][1]);
+    ctx.stroke();
+  }
+
+  // Head glow
+  var hd=curve[headIdx];
+  ctx.beginPath();ctx.arc(hd[0],hd[1],w*3,0,6.283);
+  ctx.fillStyle='rgba('+R+','+G+','+B+','+(0.95*bo)+')';ctx.fill();
+  ctx.beginPath();ctx.arc(hd[0],hd[1],w*10,0,6.283);
+  ctx.fillStyle='rgba('+R+','+G+','+B+','+(0.12*bo)+')';ctx.fill();
+  ctx.beginPath();ctx.arc(hd[0],hd[1],w*22,0,6.283);
+  ctx.fillStyle='rgba('+R+','+G+','+B+','+(0.025*bo)+')';ctx.fill();
+};
+
+var fibers=[];
+function init(){
+  resize();
+  fibers=[];
+  for(var i=0;i<FIBER_COUNT;i++) fibers.push(new Fiber(i));
+}
+
+var startTime=0;
+function loop(ts){
+  if(!startTime) startTime=ts;
+  var elapsed=(ts-startTime)/1000;
+
+  ctx.globalCompositeOperation='source-over';
+  ctx.fillStyle='#0A0A1A';
+  ctx.fillRect(0,0,W,H);
+
+  ctx.globalCompositeOperation='lighter';
+  for(var i=0;i<fibers.length;i++) fibers[i].draw(elapsed);
+
+  requestAnimationFrame(loop);
+}
+
+window.addEventListener('resize',function(){resize();mob=window.innerWidth<768});
+init();
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
 </html>
