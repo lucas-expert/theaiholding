@@ -1,1 +1,0 @@
-# Fetch skript používá jen stdlib (urllib, json), žádné dependencies
