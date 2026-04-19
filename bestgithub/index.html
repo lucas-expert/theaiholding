@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEST GITHUB · AI & AGENTS · THE AI HOLDING</title>
+<meta name="description" content="Žebříček nejrychleji rostoucích AI a Agent projektů na GitHubu za poslední týden, s českými popisky.">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:title" content="BEST GITHUB · AI & AGENTS · THE AI HOLDING">
+<meta property="og:description" content="Top 100 AI a Top 100 Agent repozitářů podle přírůstku hvězd za týden.">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+<link rel="canonical" href="https://www.theaiholding.com/bestgithub">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#0a0a0a;
+  --bg-card:#111;
+  --fg:#e8e8e8;
+  --accent:#00ffaa;
+  --accent-dim:rgba(0,255,170,0.4);
+  --dim:rgba(232,232,232,0.5);
+  --ghost:rgba(232,232,232,0.25);
+  --border:rgba(232,232,232,0.08);
+  --border-hi:rgba(0,255,170,0.25);
+  --glass-bg:rgba(232,232,232,0.03);
+  --seen-opacity:0.35;
+  --new-badge:#ffd60a;
+  --mono:'JetBrains Mono',monospace;
+}
+
+html,body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--mono);
+  -webkit-font-smoothing:antialiased;
+  min-height:100%;
+}
+
+body{
+  background:
+    radial-gradient(ellipse at top, rgba(0,255,170,0.04), transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(0,255,170,0.02), transparent 50%),
+    var(--bg);
+  background-attachment:fixed;
+}
+
+a{color:inherit;text-decoration:none}
+
+/* Scanlines */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  pointer-events:none;z-index:1;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);
+}
+
+/* Header */
+.hdr{
+  position:sticky;top:0;z-index:10;
+  background:rgba(10,10,10,0.85);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.hdr-row{
+  max-width:1400px;margin:0 auto;
+  padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;
+}
+.brand{
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;letter-spacing:0.15em;font-weight:500;
+  color:var(--dim);
+}
+.brand .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;box-shadow:0 0 10px var(--accent)}
+.brand a:hover{color:var(--fg)}
+.brand .sep{opacity:0.3}
+.brand .page{color:var(--accent)}
+
+.meta-line{
+  font-size:11px;letter-spacing:0.12em;color:var(--dim);
+  display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+}
+.meta-line .val{color:var(--fg)}
+
+/* Hero */
+.hero{
+  max-width:1400px;margin:0 auto;
+  padding:48px 24px 24px;
+}
+.hero h1{
+  font-size:clamp(28px,5vw,48px);
+  font-weight:700;letter-spacing:0.04em;
+  line-height:1.1;
+}
+.hero h1 .glow{
+  color:var(--accent);
+  text-shadow:0 0 30px rgba(0,255,170,0.3);
+}
+.hero p{
+  margin-top:14px;font-size:13px;color:var(--dim);
+  max-width:720px;line-height:1.6;letter-spacing:0.02em;
+}
+
+/* Controls */
+.controls{
+  max-width:1400px;margin:0 auto;
+  padding:16px 24px 8px;
+  display:flex;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{
+  background:transparent;border:1px solid var(--border);
+  color:var(--dim);
+  font-family:var(--mono);font-size:12px;letter-spacing:0.1em;
+  padding:10px 16px;cursor:pointer;
+  text-transform:uppercase;
+  transition:all 0.15s;
+}
+.tab:hover{border-color:var(--border-hi);color:var(--fg)}
+.tab.active{
+  background:var(--accent);color:var(--bg);border-color:var(--accent);
+}
+.tab .count{opacity:0.7;margin-left:6px;font-weight:400}
+
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto}
+.toggle{
+  display:flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:0.1em;color:var(--dim);
+  padding:10px 14px;border:1px solid var(--border);cursor:pointer;
+  user-select:none;
+  text-transform:uppercase;
+  transition:all 0.15s;
+}
+.toggle:hover{border-color:var(--border-hi);color:var(--fg)}
+.toggle.on{border-color:var(--accent);color:var(--accent)}
+.toggle .box{
+  width:12px;height:12px;border:1px solid currentColor;position:relative;
+}
+.toggle.on .box{background:var(--accent)}
+.toggle.on .box::after{
+  content:'';position:absolute;left:3px;top:0px;
+  width:4px;height:8px;border:solid var(--bg);
+  border-width:0 2px 2px 0;transform:rotate(45deg);
+}
+
+.search{
+  flex:1;min-width:200px;max-width:340px;
+  background:var(--glass-bg);border:1px solid var(--border);
+  color:var(--fg);font-family:var(--mono);font-size:12px;
+  padding:10px 14px;letter-spacing:0.05em;
+}
+.search:focus{outline:none;border-color:var(--accent)}
+
+/* Grid */
+.grid{
+  max-width:1400px;margin:0 auto;
+  padding:16px 24px 80px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:16px;
+}
+
+.card{
+  position:relative;
+  background:var(--bg-card);border:1px solid var(--border);
+  padding:20px;
+  display:flex;flex-direction:column;gap:12px;
+  transition:all 0.2s;
+  min-height:180px;
+}
+.card:hover{border-color:var(--border-hi);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.5), 0 0 40px rgba(0,255,170,0.05)}
+.card.seen{opacity:var(--seen-opacity)}
+.card.seen:hover{opacity:0.7}
+
+.card .rank{
+  position:absolute;top:12px;right:14px;
+  font-size:10px;color:var(--ghost);letter-spacing:0.1em;
+}
+
+.card-head{display:flex;align-items:flex-start;gap:10px;padding-right:30px}
+.card h3{
+  font-size:14px;font-weight:500;letter-spacing:0.02em;
+  word-break:break-word;line-height:1.35;
+}
+.card h3 .owner{color:var(--dim);font-weight:400}
+.card h3 .slash{color:var(--ghost);margin:0 2px}
+.card h3 .repo-link:hover{color:var(--accent)}
+
+.new-badge{
+  display:inline-block;vertical-align:middle;
+  background:var(--new-badge);color:#000;
+  font-size:9px;font-weight:700;letter-spacing:0.15em;
+  padding:2px 6px;margin-right:6px;border-radius:2px;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.65}}
+
+.desc{
+  font-size:12px;color:var(--fg);line-height:1.55;letter-spacing:0.01em;
+  flex:1;
+}
+.desc-en{
+  font-size:11px;color:var(--dim);line-height:1.5;
+  padding-top:8px;border-top:1px dashed var(--border);
+  font-style:italic;
+}
+
+.meta{
+  display:flex;gap:12px;flex-wrap:wrap;
+  font-size:10px;letter-spacing:0.08em;color:var(--dim);
+  text-transform:uppercase;
+}
+.meta .item{display:flex;align-items:center;gap:4px}
+.meta .lang{color:var(--accent)}
+.meta .gain{
+  color:var(--accent);font-weight:700;
+  background:rgba(0,255,170,0.08);padding:3px 7px;
+  border:1px solid var(--border-hi);
+  letter-spacing:0.1em;
+}
+
+.topics{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.topic{
+  font-size:9px;color:var(--dim);letter-spacing:0.1em;
+  border:1px solid var(--border);padding:2px 6px;text-transform:uppercase;
+}
+
+.card-actions{
+  display:flex;gap:8px;margin-top:auto;padding-top:12px;
+  border-top:1px solid var(--border);
+}
+.btn-seen{
+  flex:1;background:transparent;border:1px solid var(--border);
+  color:var(--dim);font-family:var(--mono);font-size:10px;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:8px;cursor:pointer;transition:all 0.15s;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.btn-seen:hover{border-color:var(--accent);color:var(--accent)}
+.card.seen .btn-seen{border-color:var(--accent);color:var(--accent)}
+.btn-seen .check{
+  width:12px;height:12px;border:1px solid currentColor;
+  position:relative;display:inline-block;
+}
+.card.seen .btn-seen .check{background:var(--accent)}
+.card.seen .btn-seen .check::after{
+  content:'';position:absolute;left:3px;top:0;
+  width:3px;height:7px;border:solid var(--bg);
+  border-width:0 2px 2px 0;transform:rotate(45deg);
+}
+
+.btn-open{
+  background:transparent;border:1px solid var(--border);
+  color:var(--dim);font-family:var(--mono);font-size:10px;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:8px 14px;transition:all 0.15s;
+}
+.btn-open:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Loading / empty */
+.state{
+  grid-column:1/-1;
+  padding:60px 20px;text-align:center;
+  color:var(--dim);font-size:13px;letter-spacing:0.1em;
+}
+.state .spinner{
+  display:inline-block;width:14px;height:14px;
+  border:1px solid var(--border);border-top-color:var(--accent);
+  border-radius:50%;animation:spin 0.8s linear infinite;margin-right:10px;
+  vertical-align:middle;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.error{color:#ff3366}
+
+/* Footer */
+.ftr{
+  max-width:1400px;margin:0 auto;padding:24px;
+  border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:10px;letter-spacing:0.12em;color:var(--ghost);
+  text-transform:uppercase;
+}
+.ftr a:hover{color:var(--accent)}
+
+@media (max-width:640px){
+  .hero{padding:28px 18px 16px}
+  .hdr-row{padding:12px 18px}
+  .controls{padding:12px 18px}
+  .grid{padding:12px 18px 60px;grid-template-columns:1fr}
+  .filters{margin-left:0;width:100%}
+  .search{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-row">
+    <div class="brand">
+      <span class="dot"></span>
+      <a href="/">THE AI HOLDING</a>
+      <span class="sep">/</span>
+      <span class="page">BEST GITHUB</span>
+    </div>
+    <div class="meta-line">
+      <span>SNAPSHOT <span class="val" id="snapshot-time">…</span></span>
+      <span>·</span>
+      <span><span class="val" id="total-count">0</span> REPOS</span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>AI &amp; AGENTS <span class="glow">//</span> TÝDENNÍ ŽEBŘÍČEK</h1>
+  <p>Nejrychleji rostoucí open-source projekty na GitHubu za posledních 7 dní.
+  Top 100 v kategorii <strong style="color:var(--fg)">AI</strong> a Top 100 v kategorii <strong style="color:var(--fg)">Agents</strong>.
+  Řazeno podle přírůstku hvězdiček, s českým popiskem. Aktualizace každé pondělí.</p>
+</section>
+
+<div class="controls">
+  <div class="tabs">
+    <button class="tab active" data-tab="ai">AI <span class="count" id="cnt-ai">0</span></button>
+    <button class="tab" data-tab="agents">AGENTS <span class="count" id="cnt-agents">0</span></button>
+  </div>
+  <div class="filters">
+    <button class="toggle" id="only-new"><span class="box"></span>JEN NOVINKY</button>
+    <button class="toggle" id="hide-seen"><span class="box"></span>SKRÝT VIDĚNÉ</button>
+    <input class="search" id="search" placeholder="HLEDAT…" />
+  </div>
+</div>
+
+<main class="grid" id="grid">
+  <div class="state"><span class="spinner"></span>NAČÍTÁM DATA Z GITHUBU…</div>
+</main>
+
+<footer class="ftr">
+  <div>© THE AI HOLDING · DATA GITHUB + OWN CRAWLER</div>
+  <div><a href="/">← ZPĚT NA HLAVNÍ</a></div>
+</footer>
+
+<script>
+(function(){
+  const SUPABASE_URL = 'https://pfanjvhwjvrkadhibbdj.supabase.co';
+  const SUPABASE_ANON = 'sb_publishable_acNaHYYfDrzrOfBFexXH3w_BoIc2E6U';
+  const STORAGE_SEEN = 'bestgithub_seen_v1';
+  const STORAGE_VIEW = 'bestgithub_view_v1';
+
+  const state = {
+    all: {ai: [], agents: []},
+    category: 'ai',
+    onlyNew: false,
+    hideSeen: false,
+    search: '',
+    seen: loadSeen(),
+    snapshot_at: null,
+  };
+
+  // Persist / load seen set
+  function loadSeen(){
+    try { return new Set(JSON.parse(localStorage.getItem(STORAGE_SEEN) || '[]')); }
+    catch(e){ return new Set(); }
+  }
+  function saveSeen(){
+    try { localStorage.setItem(STORAGE_SEEN, JSON.stringify([...state.seen])); } catch(e){}
+  }
+  function loadView(){
+    try { return JSON.parse(localStorage.getItem(STORAGE_VIEW) || '{}'); }
+    catch(e){ return {}; }
+  }
+  function saveView(){
+    try { localStorage.setItem(STORAGE_VIEW, JSON.stringify({
+      category: state.category, onlyNew: state.onlyNew, hideSeen: state.hideSeen,
+    })); } catch(e){}
+  }
+
+  // Apply saved view
+  Object.assign(state, loadView());
+
+  // DOM
+  const grid = document.getElementById('grid');
+  const tabs = document.querySelectorAll('.tab');
+  const onlyNewBtn = document.getElementById('only-new');
+  const hideSeenBtn = document.getElementById('hide-seen');
+  const searchInput = document.getElementById('search');
+
+  tabs.forEach(t => {
+    if (t.dataset.tab === state.category) t.classList.add('active');
+    else t.classList.remove('active');
+    t.addEventListener('click', () => {
+      state.category = t.dataset.tab;
+      tabs.forEach(x => x.classList.toggle('active', x === t));
+      saveView();
+      render();
+    });
+  });
+
+  onlyNewBtn.classList.toggle('on', state.onlyNew);
+  hideSeenBtn.classList.toggle('on', state.hideSeen);
+
+  onlyNewBtn.addEventListener('click', () => {
+    state.onlyNew = !state.onlyNew;
+    onlyNewBtn.classList.toggle('on', state.onlyNew);
+    saveView(); render();
+  });
+  hideSeenBtn.addEventListener('click', () => {
+    state.hideSeen = !state.hideSeen;
+    hideSeenBtn.classList.toggle('on', state.hideSeen);
+    saveView(); render();
+  });
+  searchInput.addEventListener('input', e => {
+    state.search = e.target.value.trim().toLowerCase();
+    render();
+  });
+
+  function fmt(n){
+    if (n >= 1000) return (n/1000).toFixed(n>=10000?0:1) + 'k';
+    return String(n);
+  }
+
+  function esc(s){
+    return String(s||'').replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function card(repo){
+    const isSeen = state.seen.has(repo.id);
+    const topics = (repo.topics||[]).slice(0,4).map(t => `<span class="topic">${esc(t)}</span>`).join('');
+    const newBadge = repo.is_new ? '<span class="new-badge">NEW</span>' : '';
+    const desc = repo.description_cs || repo.description || '';
+    const descEn = repo.description && repo.description_cs && repo.description !== repo.description_cs
+      ? `<div class="desc-en">${esc(repo.description)}</div>` : '';
+
+    return `
+      <article class="card ${isSeen?'seen':''}" data-id="${repo.id}">
+        <span class="rank">#${repo.rank}</span>
+        <div class="card-head">
+          <h3>
+            ${newBadge}<span class="owner">${esc(repo.owner)}</span><span class="slash">/</span><a class="repo-link" href="${esc(repo.html_url)}" target="_blank" rel="noopener">${esc(repo.name)}</a>
+          </h3>
+        </div>
+        <div class="desc">${esc(desc) || '<em style="opacity:0.5">Bez popisu</em>'}</div>
+        ${descEn}
+        <div class="meta">
+          <span class="item gain">+${fmt(repo.stars_gained_week)} ★ / 7D</span>
+          <span class="item">${fmt(repo.stars_total)} TOTAL</span>
+          ${repo.language ? `<span class="item lang">● ${esc(repo.language)}</span>` : ''}
+        </div>
+        ${topics ? `<div class="topics">${topics}</div>` : ''}
+        <div class="card-actions">
+          <button class="btn-seen" data-action="toggle-seen"><span class="check"></span>${isSeen ? 'VIDĚNO' : 'OZNAČIT JAKO VIDĚNÉ'}</button>
+          <a class="btn-open" href="${esc(repo.html_url)}" target="_blank" rel="noopener">OTEVŘÍT ↗</a>
+        </div>
+      </article>
+    `;
+  }
+
+  function render(){
+    const list = state.all[state.category] || [];
+    let filtered = list.slice();
+
+    if (state.onlyNew) filtered = filtered.filter(r => r.is_new);
+    if (state.hideSeen) filtered = filtered.filter(r => !state.seen.has(r.id));
+    if (state.search) {
+      const q = state.search;
+      filtered = filtered.filter(r =>
+        r.full_name.toLowerCase().includes(q)
+        || (r.description||'').toLowerCase().includes(q)
+        || (r.description_cs||'').toLowerCase().includes(q)
+        || (r.topics||[]).some(t => t.toLowerCase().includes(q))
+      );
+    }
+
+    document.getElementById('cnt-ai').textContent = state.all.ai.length;
+    document.getElementById('cnt-agents').textContent = state.all.agents.length;
+    document.getElementById('total-count').textContent = filtered.length;
+
+    if (!filtered.length) {
+      grid.innerHTML = `<div class="state">ŽÁDNÉ VÝSLEDKY${state.search?' PRO "'+esc(state.search)+'"':''}.</div>`;
+      return;
+    }
+
+    // Přidělíme rank podle původního pořadí v kategorii
+    const rankMap = new Map(list.map((r,i) => [r.id, i+1]));
+    filtered.forEach(r => { r.rank = rankMap.get(r.id); });
+
+    grid.innerHTML = filtered.map(card).join('');
+
+    grid.querySelectorAll('.btn-seen').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const art = btn.closest('.card');
+        const id = Number(art.dataset.id);
+        if (state.seen.has(id)) state.seen.delete(id);
+        else state.seen.add(id);
+        saveSeen();
+        render();
+      });
+    });
+  }
+
+  async function fetchData(){
+    try {
+      const url = `${SUPABASE_URL}/rest/v1/bestgithub_repos?select=id,full_name,name,owner,html_url,description,description_cs,homepage,language,topics,stars_total,stars_gained_week,category,first_seen_at,is_new,snapshot_at&order=stars_gained_week.desc,stars_total.desc&limit=500`;
+      const res = await fetch(url, {
+        headers: {
+          'apikey': SUPABASE_ANON,
+          'Authorization': 'Bearer ' + SUPABASE_ANON,
+        }
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const rows = await res.json();
+
+      // Seskup podle kategorie, zachovej pořadí (už přichází seřazené)
+      state.all.ai = rows.filter(r => r.category === 'ai').slice(0, 100);
+      state.all.agents = rows.filter(r => r.category === 'agents').slice(0, 100);
+
+      if (rows.length) {
+        const ts = rows.map(r => r.snapshot_at).sort().pop();
+        state.snapshot_at = ts;
+        const d = new Date(ts);
+        document.getElementById('snapshot-time').textContent =
+          d.toLocaleDateString('cs-CZ',{day:'numeric',month:'short',year:'numeric'}) +
+          ' ' + d.toLocaleTimeString('cs-CZ',{hour:'2-digit',minute:'2-digit'});
+      } else {
+        document.getElementById('snapshot-time').textContent = 'ČEKÁ NA DATA';
+      }
+
+      render();
+    } catch (err) {
+      grid.innerHTML = `<div class="state error">CHYBA NAČÍTÁNÍ: ${esc(err.message)}<br><br><span style="opacity:0.6">Zkontroluj, že fetch skript už proběhl.</span></div>`;
+    }
+  }
+
+  fetchData();
+})();
+</script>
+</body>
+</html>

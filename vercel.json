@@ -7,6 +7,25 @@
     {
       "source": "/dashboard/(.*)",
       "destination": "/dashboard/$1"
+    },
+    {
+      "source": "/bestgithub",
+      "destination": "/bestgithub/index.html"
+    },
+    {
+      "source": "/bestgithub/(.*)",
+      "destination": "/bestgithub/$1"
     }
-  ]
+  ],
+  "crons": [
+    {
+      "path": "/api/cron-refresh",
+      "schedule": "0 6 * * 1"
+    }
+  ],
+  "functions": {
+    "api/cron-refresh.py": {
+      "maxDuration": 300
+    }
+  }
 }
